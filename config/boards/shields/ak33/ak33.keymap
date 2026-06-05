@@ -1,0 +1,92 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+/ {
+    behaviors {
+        /* Custom Hold-Tap for your Z and Period shift keys */
+        z_shft: tap_dance_z {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
+        };
+        
+        dot_shft: tap_dance_dot {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <0 1>;
+            bindings = <&kp ESC>;
+        };
+
+        combo_backspace {
+            timeout-ms = <50>;
+            key-positions = <8 9>;
+            bindings = <&kp BACKSPACE>;
+        };
+
+        combo_tab {
+            timeout-ms = <50>;
+            key-positions = <10 11>;
+            bindings = <&kp TAB>;
+        };
+
+        combo_return {
+            timeout-ms = <50>;
+            key-positions = <17 18>;
+            bindings = <&kp RETURN>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        /* Layer 0: Base Layer (Adjusted for your 33 physical keys) */
+        default_layer {
+            bindings = <
+                /* Row 0 (y=0): 10 keys */
+                &kp Q        &kp W        &kp E        &kp R        &kp T        &kp Y        &kp U        &kp I        &kp O        &kp P
+                
+                /* Row 1 (y=100): 9 keys (Includes the big vertical key at the end) */
+                &kp A        &kp S        &kp D        &kp F        &kp G        &kp H        &kp J        &kp K        &kp L
+                
+                /* Row 2 (y=200): 8 keys from KLE + 1 filler key to match your 9 physical nodes */
+                &z_shft LSHFT Z           &kp X        &kp C        &kp V        &kp B        &kp N        &kp M        &kp COMMA
+                
+                /* Row 3 (y=300): 6 keys */
+                &kp LCTRL    &kp LALT     &kp LGUI                  &lt 1 SPACE                            &mo 2        &dot_shft RSHFT DOT
+            >;
+        };
+
+        /* Layer 1: Mod 1 Layer (Activated by holding Space) */
+        mod1_layer {
+            bindings = <
+                &kp TILDE    &trans       &trans       &trans       &trans       &trans       &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT
+                &kp PIPE     &kp C_NEXT   &kp C_PLAY   &trans       &trans       &kp MINUS    &kp PLUS     &kp LBRC     &kp RBRC    
+                &kp LSHFT                 &kp C_VOL_UP &kp C_VOL_DN &trans       &kp HOME     &kp END      &kp PG_UP    &kp PG_DN
+                &trans       &trans       &trans                    &trans                                 &trans       &kp RSHFT
+            >;
+        };
+
+        /* Layer 2: Mod 2 Layer (Utility / Bluetooth) */
+        mod2_layer {
+            bindings = <
+                &kp N1       &kp N2         &kp N3       &kp N4         &kp N5       &kp N6       &kp N7       &kp N8       &kp N9       &kp N0
+                &kp BSLH     &bt BT_CLR_ALL &bt BT_CLR   &bt BT_SEL 0   &bt BT_SEL 1 &kp UNDER    &kp KP_EQUAL &kp LBKT     &kp RBKT
+                &kp LSHFT                   &bt BT_SEL 2 &bt BT_SEL 3   &trans       &trans       &kp SEMI     &kp SQT      &kp SLASH
+                &bootloader  &trans         &trans                      &trans                                 &trans       &kp RSHFT
+            >;
+        };
+    };
+};
