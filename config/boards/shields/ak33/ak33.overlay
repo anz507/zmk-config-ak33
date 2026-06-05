@@ -9,7 +9,7 @@
 
     default_kscan: kscan {
         compatible = "zmk,kscan-gpio-matrix";
-        label = "default_kscan"
+        label = "default_kscan";
         diode-direction = "col2row"; // options: "col2row" or "row2col"
 
         /* Define the micro-controller pins used for Rows */
