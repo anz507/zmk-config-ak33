@@ -56,16 +56,16 @@
         default_layer {
             bindings = <
                 /* Row 0 (y=0): 10 keys */
-                &kp Q        &kp W        &kp E        &kp R        &kp T        &kp Y        &kp U        &kp I        &kp O        &kp P
+                &kp Q           &kp W        &kp E        &kp R        &kp T        &kp Y        &kp U        &kp I        &kp O        &kp P
                 
                 /* Row 1 (y=100): 9 keys (Includes the big vertical key at the end) */
-                &kp A        &kp S        &kp D        &kp F        &kp G        &kp H        &kp J        &kp K        &kp L
+                &kp A           &trans       &kp S        &kp D        &kp F        &kp G        &kp H        &kp J        &kp K        &kp L
                 
                 /* Row 2 (y=200): 8 keys from KLE + 1 filler key to match your 9 physical nodes */
-                &z_shft LSHFT Z           &kp X        &kp C        &kp V        &kp B        &kp N        &kp M        &kp COMMA
+                &z_shft LSHFT Z &trans       &kp X        &kp C        &kp V        &kp B        &kp N        &kp M        &kp COMMA    &trans
                 
                 /* Row 3 (y=300): 6 keys */
-                &kp LCTRL    &kp LALT     &kp LGUI                  &lt 1 SPACE                            &mo 2        &dot_shft RSHFT DOT
+                &kp LCTRL       &trans       &kp LALT     &kp LGUI     &trans       &trans       &lt 1 SPACE  &trans       &mo 2        &dot_shft RSHFT DOT
             >;
         };
 
@@ -73,19 +73,19 @@
         mod1_layer {
             bindings = <
                 &kp TILDE    &trans       &trans       &trans       &trans       &trans       &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT
-                &kp PIPE     &kp C_NEXT   &kp C_PLAY   &trans       &trans       &kp MINUS    &kp PLUS     &kp LBRC     &kp RBRC    
-                &kp LSHFT                 &kp C_VOL_UP &kp C_VOL_DN &trans       &kp HOME     &kp END      &kp PG_UP    &kp PG_DN
-                &trans       &trans       &trans                    &trans                                 &trans       &kp RSHFT
+                &kp PIPE     &trans       &kp C_NEXT   &kp C_PLAY   &trans       &trans       &kp MINUS    &kp PLUS     &kp LBRC     &kp RBRC
+                &kp LSHFT    &trans       &kp C_VOL_UP &kp C_VOL_DN &trans       &kp HOME     &kp END      &kp PG_UP    &kp PG_DN    &trans
+                &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &kp RSHFT
             >;
         };
 
         /* Layer 2: Mod 2 Layer (Utility / Bluetooth) */
         mod2_layer {
             bindings = <
-                &kp N1       &kp N2         &kp N3       &kp N4         &kp N5       &kp N6       &kp N7       &kp N8       &kp N9       &kp N0
-                &kp BSLH     &bt BT_CLR_ALL &bt BT_CLR   &bt BT_SEL 0   &bt BT_SEL 1 &kp UNDER    &kp KP_EQUAL &kp LBKT     &kp RBKT
-                &kp LSHFT                   &bt BT_SEL 2 &bt BT_SEL 3   &trans       &trans       &kp SEMI     &kp SQT      &kp SLASH
-                &bootloader  &trans         &trans                      &trans                                 &trans       &kp RSHFT
+                &kp N1       &kp N2      &kp N3         &kp N4         &kp N5         &kp N6       &kp N7       &kp N8       &kp N9       &kp N0
+                &kp BSLH     &trans      &bt BT_CLR_ALL &bt BT_CLR     &bt BT_SEL 0   &bt BT_SEL 1 &kp UNDER    &kp KP_EQUAL &kp LBKT     &kp RBKT
+                &kp LSHFT    &trans      &bt BT_SEL 2   &bt BT_SEL 3   &trans         &trans       &kp SEMI     &kp SQT      &kp SLASH    &trans
+                &bootloader  &trans      &trans         &trans         &trans         &trans       &trans       &trans.      &trans       &kp RSHFT
             >;
         };
     };
