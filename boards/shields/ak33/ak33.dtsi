@@ -1,0 +1,18 @@
+/ {
+    chosen {
+        zmk,underglow = &led_strip;
+    };
+};
+
+&spi0 {
+    compatible = "nordic,nrf-spi";
+    status = "okay";
+    
+    led_strip: ws2812b@0 {
+        compatible = "worldsemi,ws2812b";
+        reg = <0>;
+        spi-max-frequency = <4000000>;
+        chain-length = <29>; // Adjust to your LED count
+        color-mapping = [0 1 2]; // RGB order
+    };
+};
