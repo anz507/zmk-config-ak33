@@ -31,6 +31,12 @@
             bindings = <&kp ESC>;
         };
 
+        combo_delete {
+            timeout-ms = <50>;
+            key-positions = <7 8>;
+            bindings = <&kp DELETE>;
+        };
+
         combo_backspace {
             timeout-ms = <50>;
             key-positions = <8 9>;
@@ -80,8 +86,8 @@
         mod1_layer {
             bindings = <
                 &kp TILDE    &trans       &trans       &trans       &trans       &trans       &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT
-                &kp PIPE     &trans       &kp C_NEXT   &kp C_PLAY   &trans       &trans       &kp MINUS    &kp PLUS     &kp LBRC     &kp RBRC
-                &kp LSHFT    &trans       &kp C_VOL_UP &kp C_VOL_DN &trans       &kp HOME     &kp END      &kp PG_UP    &kp PG_DN    &trans
+                &kp PIPE     &trans       &kp C_NEXT   &kp C_PLAY   &trans       &trans       &kp UNDER    &kp EQUAL    &kp LBKT     &kp RBKT
+                &kp LSHFT    &trans       &kp C_VOL_DN &kp C_VOL_UP &trans       &kp HOME     &kp END      &kp PG_UP    &kp PG_DN    &trans
                 &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &kp RSHFT
             >;
         };
@@ -90,8 +96,8 @@
         mod2_layer {
             bindings = <
                 &kp N1       &kp N2      &kp N3         &kp N4         &kp N5         &kp N6       &kp N7       &kp N8       &kp N9       &kp N0
-                &kp BSLH     &trans      &bt BT_CLR_ALL &bt BT_CLR     &bt BT_SEL 0   &bt BT_SEL 1 &kp UNDER    &kp EQUAL    &kp LBKT     &kp RBKT
-                &kp LSHFT    &trans      &bt BT_SEL 2   &bt BT_SEL 3   &trans         &trans       &kp SEMI     &kp SQT      &kp SLASH    &trans
+                &kp BSLH     &trans      &trans         &trans         &trans         &trans       &kp MINUS    &kp PLUS     &kp LBRC     &kp RBRC
+                &kp LSHFT    &trans      &trans         &trans         &trans         &trans       &kp SEMI     &kp SQT      &kp SLASH    &trans
                 &bootloader  &trans      &trans         &trans         &trans         &trans       &trans       &trans       &trans       &kp RSHFT
             >;
         };
@@ -100,7 +106,7 @@
         mod3_layer {
             bindings = <
                 &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &rgb_ug RGB_HUI  &rgb_ug RGB_HUD  &rgb_ug RGB_SAI  &rgb_ug RGB_SAD  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &rgb_ug RGB_SPI  &rgb_ug RGB_SPD
-                &trans           &trans           &rgb_ug RGB_EFR  &trans           &trans           &trans           &trans           &trans           &trans           &trans
+                &trans           &trans           &rgb_ug RGB_EFR  &trans           &bt BT_CLR_ALL   &bt BT_CLR       &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2.    &bt BT_SEL 3
                 &trans           &trans           &trans           &trans           &trans           &trans           &trans           &trans           &trans           &trans
                 &trans           &trans           &trans           &trans           &trans           &trans           &trans           &trans           &trans           &trans
             >;
